@@ -87,20 +87,23 @@ model_stats(y_test, y_pred_svr_optimized)
 
 
 correlation_matrix = df.corr()
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(20, 25))
 sns.heatmap(correlation_matrix, annot=True,
             cmap='coolwarm', fmt='.2f', cbar=True)
+plt.yticks(rotation=45)
+plt.xticks(rotation=45)
 plt.title("Correlation Heatmap of Features")
 plt.show()
 
 
 feature_target_corr = correlation_matrix['cnt'].sort_values(ascending=False)
-plt.figure(figsize=(8, 4))
+plt.figure(figsize=(20, 25))
 sns.barplot(x=feature_target_corr.index,
             y=feature_target_corr.values, palette='viridis')
 plt.title("Correlation of Features with Bike Shares (cnt)")
 plt.xticks(rotation=45)
 plt.ylabel("Correlation Coefficient")
+plt.yticks(rotation=45)
 plt.show()
 
 
